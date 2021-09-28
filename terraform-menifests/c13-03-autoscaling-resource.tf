@@ -2,9 +2,11 @@
 
 resource "aws_autoscaling_group" "my_asg" {
   name_prefix = "${local.name}-"
-  desired_capacity = 2
+  #desired_capacity = 2
+  desired_capacity = 3
   max_size = 10
-  min_size = 2
+  #min_size = 2
+  min_size = 3
   vpc_zone_identifier = module.vpc.private_subnets
   target_group_arns = module.alb.target_group_arns
   health_check_type = "EC2"
